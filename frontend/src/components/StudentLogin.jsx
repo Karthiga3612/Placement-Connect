@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { TextField, Button, CircularProgress, Container, Typography, Box, Card, CardContent } from '@mui/material';
 
 function StudentLogin() {
-  const [regNo, setStudentId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
@@ -14,9 +14,14 @@ function StudentLogin() {
     e.preventDefault();
     setLoading(true); // Start loading
 
+    const data={
+      regNo,
+      password
+    }
+
     try {
-      const response = await axios.post('http://localhost:8000/api/student/student-login', {
-        regNo,
+      const response = await axios.post('http://localhost:3001/api/student-login', {
+        email,
         password,
       });
       localStorage.setItem('token', response.data.token);
@@ -48,8 +53,8 @@ function StudentLogin() {
                 type="text"
                 variant="outlined"
                 fullWidth
-                value={regNo}
-                onChange={(e) => setStudentId(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 margin="normal"
               />
