@@ -1,0 +1,129 @@
+/* HomePage.css */
+
+/* Set a beautiful background image for the entire page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('https://images.unsplash.com/photo-1533641796478-3f397c6d8ff3') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* Navigation Bar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+nav h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+nav button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #707e83;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #111213; /* Darker shade on hover */
+}
+
+nav button:focus {
+  outline: none;
+}
+
+/* Home section styles */
+.home-page {
+  padding: 80px 20px 20px; /* Add padding for the top due to fixed navbar */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+h1 {
+  font-size: 36px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+}
+
+.student-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.student-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.student-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.student-details h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:black;
+  
+}
+
+.student-details p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: black;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+  .student-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .student-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  nav button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}

@@ -1,0 +1,117 @@
+/* Center the container vertically and horizontally */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0ea5ca; /* Dark gray background for the entire page */
+}
+
+/* Style the form container */
+.form-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: #333; /* Dark background for the form */
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for the dark theme */
+  transform: translateY(-50px);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for form container */
+.form-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #f1f1f1; /* Light text for heading */
+  letter-spacing: 1px;
+}
+
+/* Style for form groups */
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.label {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #bbb; /* Lighter gray for labels */
+  font-weight: 500;
+}
+
+/* Input field styling */
+.input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #444; /* Dark border for input */
+  color: #f1f1f1; /* Light text inside input */
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #555; /* Dark gray background for input fields */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focus on input fields */
+.input:focus {
+  border-color: #4CAF50;
+  background-color: #333; /* Dark background on focus */
+  outline: none;
+}
+
+/* Button styling */
+.button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4CAF50; /* Green background for button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+.button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  transform: translateY(-2px);
+}
+
+/* Error message styling */
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Link styling */
+p {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #bbb; /* Light gray for paragraph text */
+}
+
+a {
+  color: #4CAF50;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #45a049;
+}
