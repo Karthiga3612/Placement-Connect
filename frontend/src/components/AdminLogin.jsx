@@ -15,9 +15,9 @@ function AdminLogin() {
     setLoading(true); // Start loading
 
     try {
-      const response = await axios.post('http://localhost:3001/api/login', {
-        adminid,
-        apassword,
+      const response = await axios.post('http://localhost:8000/api/admin/admin-login', {
+       adminId: adminid,
+      password: apassword,
       });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');

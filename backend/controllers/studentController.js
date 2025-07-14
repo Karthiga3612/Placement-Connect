@@ -29,4 +29,15 @@ exports.registerStudent = async (req, res) => {
       	res.status(500).json({ message: 'Server error', error: error.message });
     }
 };
+exports.getStudentProfile = async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const student = await Student.findById(decoded.id).select('-password');
+    res.status(200).json({ student });
+  } catch (error) {
+    res.status(401).json({ message: 'Unauthorized', error });
+  }
+};
+
   

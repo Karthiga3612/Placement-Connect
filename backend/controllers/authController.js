@@ -1,5 +1,6 @@
 const Student = require('../models/studentModel');
 const bcrypt = require('bcrypt');
+const Admin = require('../models/adminModel');
 
 exports.loginStudent = async (req, res) => {
     console.log(req.body);
@@ -36,7 +37,7 @@ exports.loginAdmin = async (req, res) => {
 		if(!adminId || !password){
 			return res.status(400).json({message: 'All fields are required'});
 		}
-		const admin = await Student.findOne({ adminId });
+		const admin = await Admin.findOne({ adminId });
         if(!admin){
             return res.status(400).json({message: 'Admin not find'});
         }

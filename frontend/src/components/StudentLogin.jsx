@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { TextField, Button, CircularProgress, Container, Typography, Box, Card, CardContent } from '@mui/material';
 
 function StudentLogin() {
-  const [email, setEmail] = useState('');
+  const [regNo, setStudentId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
@@ -14,18 +14,15 @@ function StudentLogin() {
     e.preventDefault();
     setLoading(true); // Start loading
 
-    const data={
-      regNo,
-      password
-    }
-
     try {
-      const response = await axios.post('http://localhost:3001/api/student-login', {
-        email,
+      const response = await axios.post('http://localhost:8000/api/student/student-login', {
+        regNo,
         password,
       });
       localStorage.setItem('token', response.data.token);
-      navigate('/student-dashboard'); // Redirect to student dashboard
+      //navigate('/student-dashboard'); // Redirect to student dashboard
+      navigate('/student-dashboard', { state: { student: response.data.student } });
+
     } catch (err) {
       setError('Invalid email or password');
     } finally {
@@ -53,8 +50,8 @@ function StudentLogin() {
                 type="text"
                 variant="outlined"
                 fullWidth
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={regNo}
+                onChange={(e) => setStudentId(e.target.value)}
                 required
                 margin="normal"
               />
