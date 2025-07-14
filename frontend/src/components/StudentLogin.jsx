@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { TextField, Button, CircularProgress, Container, Typography, Box, Card, CardContent } from '@mui/material';
 
 function StudentLogin() {
-  const [email, setEmail] = useState('');
+  const [regNo, setRegNo] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
@@ -14,13 +14,19 @@ function StudentLogin() {
     e.preventDefault();
     setLoading(true); // Start loading
 
+    const data={
+      regNo,
+      password
+    }
+
     try {
-      const response = await axios.post('http://localhost:3001/api/student-login', {
-        email,
-        password,
+      const response = await fetch('http://localhost:8000/api/student/login', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
-      localStorage.setItem('token', response.data.token);
-      navigate('/student-dashboard'); // Redirect to student dashboard
+      
+      navigate('/student-dashboard'); // Redirect to student dashboard localStorage.setItem('token', response.data.token);
     } catch (err) {
       setError('Invalid email or password');
     } finally {
@@ -44,12 +50,12 @@ function StudentLogin() {
             </Typography>
             <form onSubmit={handleLogin} style={{ width: '100%' }}>
               <TextField
-                label="Email"
-                type="email"
+                label="Register No"
+                type="text"
                 variant="outlined"
                 fullWidth
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={regNo}
+                onChange={(e) => setRegNo(e.target.value)}
                 required
                 margin="normal"
               />
